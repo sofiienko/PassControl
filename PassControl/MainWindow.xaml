@@ -1,0 +1,55 @@
+﻿<Window x:Class="PassControl.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PassControl"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="148*">
+
+            </RowDefinition>
+            <RowDefinition Height="171*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid />
+        <!--Top -->
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+
+            <Button Grid.Row="0" Grid.Column="0" Content="Opera Login Data"     Background="Red"         Click= "copyOperaLogin"  ></Button>
+            <Button Grid.Row="0" Grid.Column="1" Content="Chrome Login Data"    Background="LightGreen"  Click="copyChromeLogin"  ></Button>
+            <Button Grid.Row="1" Grid.Column="0" Content="Opera Cookies"        Background="LightBlue"   Click="copyOperaCookies" ></Button>
+            <Button Grid.Row="1" Grid.Column="1" Content="Chrome  Cookies"      Background="Yellow"      Click="copyChromeCookies"></Button>
+            
+            
+        </Grid>
+
+        <DataGrid  Name="gridFile" Grid.Row="1" AutoGenerateColumns="False" >
+            <DataGrid.Columns>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding}" Header="Name"/>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding CreationTime}" Header="CreationTime"/>
+            </DataGrid.Columns>
+            <DataGrid.ContextMenu>
+                <ContextMenu >
+                    <MenuItem Header="Show Decrypted" Click="ShowDecryptedTable"  />
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+            
+        </DataGrid>
+        
+    </Grid>
+</Window>
